@@ -7,7 +7,7 @@ export const fetchCatSuccess = cat => ({
 });
 
 export const fetchCat = () => dispatch => {
-  fetch(`${API_BASE_URL}/cats`)
+  fetch(`${API_BASE_URL}/cat`)
       .then(res => {
           if (!res.ok) {
               return Promise.reject(res.statusText);

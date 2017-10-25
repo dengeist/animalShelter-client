@@ -7,7 +7,7 @@ export const fetchDogSuccess = dog => ({
 });
 
 export const fetchDog = () => dispatch => {
-  fetch(`${API_BASE_URL}/dogs`)
+  fetch(`${API_BASE_URL}/dog`)
       .then(res => {
           if (!res.ok) {
               return Promise.reject(res.statusText);
