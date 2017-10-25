@@ -1,17 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import './index.css';
+
+import store from './store';
 
 import AdoptAPet from './components/AdoptionList';
+import './index.css';
 
 import registerServiceWorker from './registerServiceWorker';
-
-import {createStore, applyMiddleware} from 'redux'
-import thunk from 'redux-thunk';
-import petReducer from './reducers/petReducer.js';
-
-const store = createStore(petReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   (
