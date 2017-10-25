@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+
 import AdoptAPet from './components/AdoptionList';
+
 import registerServiceWorker from './registerServiceWorker';
 
 const catToAdopt = {
