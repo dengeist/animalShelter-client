@@ -6,7 +6,7 @@ export const fetchDogSuccess = dog => ({
     dog
 });
 
-export const fetchdog = () => dispatch => {
+export const fetchDog = () => dispatch => {
   fetch(`${API_BASE_URL}/dogs`)
       .then(res => {
           if (!res.ok) {
