@@ -15,6 +15,6 @@ export const fetchCat = () => dispatch => {
           return res.json();
       })
       .then(cat => {
-          dispatch(fetchBoardSuccess(cat));
+          dispatch(fetchCatSuccess(cat));
       });
 };
