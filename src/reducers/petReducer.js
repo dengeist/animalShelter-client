@@ -1,3 +1,6 @@
+import { FETCH_CAT_SUCCESS } from '../actions/catAction';
+import { FETCH_DOG_SUCCESS } from '../actions/dogAction';
+
 const catToAdopt = {
   imageURL:
     'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg',
@@ -24,11 +27,11 @@ const initialState = {
 
 export default function petReducer(state=initialState, action) {
 
-  if (action.type === actions.FETCH_CAT_SUCCESS) {
+  if (action.type === FETCH_CAT_SUCCESS) {
     return action.cat;
   }
   
-  if (action.type === actions.FETCH_DOG_SUCCESS) {
+  if (action.type === FETCH_DOG_SUCCESS) {
     return action.dog;
   }
   
