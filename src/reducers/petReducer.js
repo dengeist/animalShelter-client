@@ -23,5 +23,14 @@ const initialState = {
 };
 
 export default function petReducer(state=initialState, action) {
+
+  if (action.type === actions.FETCH_CAT_SUCCESS) {
+    return action.cat;
+  }
+  
+  if (action.type === actions.FETCH_DOG_SUCCESS) {
+    return action.dog;
+  }
+  
   return state;
 }
