@@ -5,46 +5,46 @@ import { fetchCat } from '../actions/catAction';
 import { fetchDog } from '../actions/dogAction';
 
 export class AdoptAPet extends React.Component {
-  
   componentDidMount() {
     Promise.all([
       this.props.dispatch(fetchCat()),
-      this.props.dispatch(fetchDog()) 
+      this.props.dispatch(fetchDog())
     ]);
   }
 
-  generateHTML(prop, idx) {
-    const keyHash = prop + '-' + idx;
-
-    let itemElem = (
-      <li data-prop={prop} key={keyHash}>
-        {this[prop]}
-      </li>
+  generatePetArticle({ age, breed, gender, imageURL, name, story }, species) {
+    return (
+      <article data-animal={species}>
+        <header>
+          <h2 data-prop="name">{name}</h2>
+          <img src={imageURL} alt="" />
+        </header>
+        <main>
+          <h3>More about {name}</h3>
+          <ul>
+            <li data-prop="gender">{gender}</li>
+            <li data-prop="age">{age}</li>
+            <li data-prop="breed">{breed}</li>
+            <li data-prop="story">{story}</li>
+          </ul>
+        </main>
+      </article>
     );
-    if (prop === 'imageURL') {
-      itemElem = (
-        <li data-prop="image" key={keyHash}>
-          <img src={this[prop]} alt=""/>
-        </li>
-      );
-    }
-    return itemElem;
   }
 
   render() {
     const { catToAdopt, dogToAdopt } = this.props;
-    const [catKeys, dogKeys] = [Object.keys(catToAdopt), Object.keys(dogToAdopt)];
-    const [catList, dogList] = [
-      catKeys.map(this.generateHTML, catToAdopt),
-      dogKeys.map(this.generateHTML, dogToAdopt)
-  ];
-    return (
-    <div className="animals">
-      <ul data-animal="cat">{catList}</ul>
-      <ul data-animal="dog">{dogList}</ul>
-    </div>
-  );
+    const [catArticle, dogArticle] = [
+      this.generatePetArticle(catToAdopt, 'cat'),
+      this.generatePetArticle(dogToAdopt, 'dog')
+    ];
 
+    return (
+      <div className="animals">
+        {catArticle}
+        {dogArticle}
+      </div>
+    );
   }
 }
 
