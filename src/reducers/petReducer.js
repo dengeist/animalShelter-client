@@ -1,6 +1,3 @@
-'use strict';
-
-
 const catToAdopt = {
   imageURL:
     'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg',
@@ -25,6 +22,6 @@ const initialState = {
   dog: dogToAdopt
 };
 
-export default function(state=initialState, action) {
+export default function petReducer(state=initialState, action) {
   return state;
 }

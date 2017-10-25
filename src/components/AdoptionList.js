@@ -1,6 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default function AdoptAPet(props) {
+export function AdoptAPet(props) {
   const { catToAdopt, dogToAdopt } = props;
   const [catKeys, dogKeys] = [Object.keys(catToAdopt), Object.keys(dogToAdopt)];
   const [catList, dogList] = [
@@ -33,3 +34,10 @@ export default function AdoptAPet(props) {
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+        catToAdopt: state.cat,
+        dogToAdopt: state.dog
+});
+
+export default connect(mapStateToProps)(AdoptAPet);
