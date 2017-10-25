@@ -1,4 +1,4 @@
-import { API_BASE_URL } from '../config.js';
+import { REACT_APP_API_BASE_URL } from '../config.js';
 
 export const FETCH_CAT_SUCCESS = 'FETCH_CAT_SUCCESS';
 export const fetchCatSuccess = cat => ({
@@ -7,7 +7,7 @@ export const fetchCatSuccess = cat => ({
 });
 
 export const fetchCat = () => dispatch => {
-  fetch(`${API_BASE_URL}/cat`)
+  fetch(`${REACT_APP_API_BASE_URL}/cat`)
       .then(res => {
           if (!res.ok) {
               return Promise.reject(res.statusText);
