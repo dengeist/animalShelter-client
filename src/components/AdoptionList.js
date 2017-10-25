@@ -1,9 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { fetchCat } from '../actions/catAction';
+import { fetchDog } from '../actions/dogAction';
+
 export class AdoptAPet extends React.Component {
   constructor(props) {
     super(props);
+  }
+  
+  componentDidMount() {
+    Promise.all([
+      this.props.dispatch(fetchCat()),
+      this.props.dispatch(fetchDog()) 
+    ]);
   }
 
   generateHTML(prop, idx) {
@@ -42,8 +52,8 @@ export class AdoptAPet extends React.Component {
 }
 
 const mapStateToProps = state => ({
-        catToAdopt: state.cat,
-        dogToAdopt: state.dog
+  catToAdopt: state.cat,
+  dogToAdopt: state.dog
 });
 
 export default connect(mapStateToProps)(AdoptAPet);
