@@ -1,8 +1,8 @@
-import { REACT_APP_API_BASE_URL as API_BASE_URL } from 'config';
+import { REACT_APP_API_BASE_URL as API_BASE_URL } from '../config';
 
-export const FETCH_dog_SUCCESS = 'FETCH_dog_SUCCESS';
-export const fetchdogSuccess = board => ({
-    type: FETCH_dog_SUCCESS,
+export const FETCH_DOG_SUCCESS = 'FETCH_dog_SUCCESS';
+export const fetchDogSuccess = dog => ({
+    type: FETCH_DOG_SUCCESS,
     dog
 });
 
@@ -15,6 +15,6 @@ export const fetchdog = () => dispatch => {
           return res.json();
       })
       .then(dog => {
-          dispatch(fetchCatSuccess(dog));
+          dispatch(fetchDogSuccess(dog));
       });
 };

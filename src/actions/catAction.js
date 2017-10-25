@@ -1,7 +1,7 @@
-import { REACT_APP_API_BASE_URL as API_BASE_URL } from 'config';
+import { REACT_APP_API_BASE_URL as API_BASE_URL } from '../config.js';
 
 export const FETCH_CAT_SUCCESS = 'FETCH_CAT_SUCCESS';
-export const fetchCatSuccess = board => ({
+export const fetchCatSuccess = cat => ({
     type: FETCH_CAT_SUCCESS,
     cat
 });
