@@ -1,4 +1,4 @@
-import { REACT_APP_API_BASE_URL as API_BASE_URL } from '../config';
+import { API_BASE_URL } from '../config';
 
 export const FETCH_DOG_SUCCESS = 'FETCH_dog_SUCCESS';
 export const fetchDogSuccess = dog => ({

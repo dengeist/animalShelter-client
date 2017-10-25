@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import store from './store';
 
-import AdoptAPet from './components/AdoptionList';
+import AdoptAPet from './components/AdoptAPet';
 import './index.css';
 
 import registerServiceWorker from './registerServiceWorker';
