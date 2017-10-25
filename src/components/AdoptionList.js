@@ -1,15 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-export function AdoptAPet(props) {
-  const { catToAdopt, dogToAdopt } = props;
-  const [catKeys, dogKeys] = [Object.keys(catToAdopt), Object.keys(dogToAdopt)];
-  const [catList, dogList] = [
-    catKeys.map(generateHTML, catToAdopt),
-    dogKeys.map(generateHTML, dogToAdopt)
-  ];
+export class AdoptAPet extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  function generateHTML(prop, idx) {
+  generateHTML(prop, idx) {
     const keyHash = prop + '-' + idx;
 
     let itemElem = (
@@ -27,12 +24,21 @@ export function AdoptAPet(props) {
     return itemElem;
   }
 
-  return (
+  render() {
+    const { catToAdopt, dogToAdopt } = this.props;
+  const [catKeys, dogKeys] = [Object.keys(catToAdopt), Object.keys(dogToAdopt)];
+  const [catList, dogList] = [
+    catKeys.map(this.generateHTML, catToAdopt),
+    dogKeys.map(this.generateHTML, dogToAdopt)
+  ];
+    return (
     <div className="animals">
       <ul data-animal="cat">{catList}</ul>
       <ul data-animal="dog">{dogList}</ul>
     </div>
   );
+
+  }
 }
 
 const mapStateToProps = state => ({
