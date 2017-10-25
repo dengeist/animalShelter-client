@@ -5,9 +5,6 @@ import { fetchCat } from '../actions/catAction';
 import { fetchDog } from '../actions/dogAction';
 
 export class AdoptAPet extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   
   componentDidMount() {
     Promise.all([
