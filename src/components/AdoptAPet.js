@@ -36,10 +36,10 @@ export class AdoptAPet extends React.Component {
 
   render() {
     const { catToAdopt, dogToAdopt } = this.props;
-  const [catKeys, dogKeys] = [Object.keys(catToAdopt), Object.keys(dogToAdopt)];
-  const [catList, dogList] = [
-    catKeys.map(this.generateHTML, catToAdopt),
-    dogKeys.map(this.generateHTML, dogToAdopt)
+    const [catKeys, dogKeys] = [Object.keys(catToAdopt), Object.keys(dogToAdopt)];
+    const [catList, dogList] = [
+      catKeys.map(this.generateHTML, catToAdopt),
+      dogKeys.map(this.generateHTML, dogToAdopt)
   ];
     return (
     <div className="animals">
