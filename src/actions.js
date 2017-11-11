@@ -1,8 +1,9 @@
 import { REACT_APP_API_BASE_URL } from './config';
 
 export const ADOPT_PET_SUCCESS = 'ADOPT_PET_SUCCESS';
-export const adoptPetSuccess = () => ({
+export const adoptPetSuccess = (species) => ({
   type: ADOPT_PET_SUCCESS,
+  species
 });
 
 export const adoptPet = (species) => dispatch => {
@@ -18,7 +19,7 @@ export const adoptPet = (species) => dispatch => {
     })
     .then(cat => {
       console.log('dispatching adoptPetSuccess');
-      dispatch(adoptPetSuccess());
+      dispatch(adoptPetSuccess(species));
     })
     .then(() => {
       if (species === 'cat') {
