@@ -7,13 +7,14 @@ export const adoptPetSuccess = () => ({
 
 export const adoptPet = (species) => dispatch => {
   console.log('adopt pet');
+
   fetch(`${REACT_APP_API_BASE_URL}/${species}`, {method: 'DELETE'})
     .then(res => {
       if (!res.ok) {
         console.log('error adopting pet');
         return Promise.reject(res.statusText);
       }
-      return res.json();
+      return res.statusText;
     })
     .then(cat => {
       console.log('dispatching adoptPetSuccess');

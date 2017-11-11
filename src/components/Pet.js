@@ -17,7 +17,7 @@ export default function Pet(props){
       </ul>
       <button 
         type="button"
-        onClick={() => props.onAdoptAnimal()}
+        onClick={() => props.onAdoptPet()}
       >
         Adopt
       </button>
