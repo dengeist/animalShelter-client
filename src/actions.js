@@ -18,6 +18,14 @@ export const adoptPet = (species) => dispatch => {
     .then(cat => {
       console.log('dispatching adoptPetSuccess');
       dispatch(adoptPetSuccess());
+    })
+    .then(() => {
+      if (species === 'cat') {
+        dispatch(fetchCat())
+      }
+      if (species === 'dog') {
+        dispatch(fetchDog());
+      }
     });
 };
 
