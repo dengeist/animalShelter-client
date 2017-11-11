@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import store from './store';
 
-import App from './App';
+import Dashboard from './Dashboard';
 import './index.css';
 
 import registerServiceWorker from './registerServiceWorker';
@@ -12,7 +12,7 @@ import registerServiceWorker from './registerServiceWorker';
 ReactDOM.render(
   (
   <Provider store={store}>
-    <App />
+    <Dashboard />
   </Provider>
   ), document.getElementById('root'));
 registerServiceWorker();

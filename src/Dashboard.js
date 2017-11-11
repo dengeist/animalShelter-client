@@ -5,7 +5,7 @@ import { fetchCat, fetchDog } from './actions';
 
 import Pet from './components/Pet';
 
-export class App extends React.Component {
+export class Dashboard extends React.Component {
   componentDidMount() {
     Promise.all([
       this.props.dispatch(fetchCat()),
@@ -18,8 +18,14 @@ export class App extends React.Component {
     console.log(this.props)
     return (
       <div className="animals">
-        <Pet {...this.props.catToAdopt} species="cat"/>
-        <Pet {...this.props.dogToAdopt} species="dog"/>
+        <Pet 
+          {...this.props.catToAdopt} 
+          onAdoptAnimal={() => this.props.dispatch(fetchCat())}
+        />
+        <Pet
+          {...this.props.dogToAdopt} 
+          onAdoptAnimal={() => this.props.dispatch(fetchDog())}
+        />
       </div>
     );
   }
@@ -30,4 +36,4 @@ const mapStateToProps = state => ({
   dogToAdopt: state.dog
 });
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(Dashboard);
