@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 
 import Pet from './Pet';
 
-import { fetchCat } from '../actions/catAction';
-import { fetchDog } from '../actions/dogAction';
+import { fetchCat, fetchDog } from '../actions';
 
 export class Dashboard extends React.Component {
   componentDidMount() {
@@ -19,8 +18,8 @@ export class Dashboard extends React.Component {
     console.log(this.props)
     return (
       <div className="animals">
-        <Pet {...this.props.catToAdopt}/>
-        <Pet {...this.props.dogToAdopt}/>
+        <Pet {...this.props.catToAdopt} species="cat"/>
+        <Pet {...this.props.dogToAdopt} species="dog"/>
       </div>
     );
   }

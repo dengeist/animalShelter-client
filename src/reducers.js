@@ -1,12 +1,11 @@
-import { FETCH_CAT_SUCCESS } from '../actions/catAction';
-import { FETCH_DOG_SUCCESS } from '../actions/dogAction';
+import { FETCH_CAT_SUCCESS, FETCH_DOG_SUCCESS  } from './actions';
 
 const initialState = {
   cat: {},
   dog: {}
 };
 
-export default function petReducer(state=initialState, action) {
+export default function reducers(state=initialState, action) {
 
   if (action.type === FETCH_CAT_SUCCESS) {
     return Object.assign({}, state, {
