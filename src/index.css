@@ -1,5 +1,65 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font: 100%/1.5 sans-serif;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+dl,
+dt {
+  line-height: 1.2;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dt::after {
+  content: ':';
+}
+
+dd {
+  margin: 0;
+  padding: 0 0 0.5em 0;
+}
+
+button {
+  font-size: inherit;
+}
+
+.animals {
+  width: 90%;
+  padding: 2%;
+  margin: 0 auto;
+}
+
+.animals:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.animal {
+  width: 100%;
+}
+
+@media screen and (min-width: 48rem) {
+  body {
+    font-size: 120%;
+  }
+  .animal {
+    float: left;
+    width: 48%;
+  }
+
+  .animal:last-of-type {
+    float: right;
+  }
 }
