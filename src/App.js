@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Pet from './Pet';
+import { fetchCat, fetchDog } from './actions';
 
-import { fetchCat, fetchDog } from '../actions';
+import Pet from './components/Pet';
 
-export class Dashboard extends React.Component {
+export class App extends React.Component {
   componentDidMount() {
     Promise.all([
       this.props.dispatch(fetchCat()),
@@ -30,4 +30,4 @@ const mapStateToProps = state => ({
   dogToAdopt: state.dog
 });
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(App);
