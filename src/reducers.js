@@ -1,8 +1,8 @@
 import { ADOPT_PET_SUCCESS, FETCH_CAT_SUCCESS, FETCH_DOG_SUCCESS  } from './actions';
 
 const initialState = {
-  cat: {},
-  dog: {}
+  cat: null,
+  dog: null
 };
 
 export default function reducers(state=initialState, action) {
