@@ -13,7 +13,7 @@ export default function Pet(props) {
           <dt>Sex</dt>
           <dd>{props.gender}</dd>
           <dt>Age</dt>
-          <dd>{props.age}</dd>
+          <dd>{props.age} years</dd>
           <dt>Breed</dt>
           <dd>{props.breed}</dd>
           <dt>Story</dt>
