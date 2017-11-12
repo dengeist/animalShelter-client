@@ -1,15 +1,15 @@
 import { REACT_APP_API_BASE_URL } from './config';
 
 export const ADOPT_PET_SUCCESS = 'ADOPT_PET_SUCCESS';
-export const adoptPetSuccess = (species) => ({
+export const adoptPetSuccess = species => ({
   type: ADOPT_PET_SUCCESS,
   species
 });
 
-export const adoptPet = (species) => dispatch => {
+export const adoptPet = species => dispatch => {
   console.log('adopt pet');
 
-  fetch(`${REACT_APP_API_BASE_URL}/${species}`, {method: 'DELETE'})
+  fetch(`${REACT_APP_API_BASE_URL}/${species}`, { method: 'DELETE' })
     .then(res => {
       if (!res.ok) {
         console.log('error adopting pet');
@@ -23,7 +23,7 @@ export const adoptPet = (species) => dispatch => {
     })
     .then(() => {
       if (species === 'cat') {
-        dispatch(fetchCat())
+        dispatch(fetchCat());
       }
       if (species === 'dog') {
         dispatch(fetchDog());
@@ -63,13 +63,13 @@ export const fetchDog = () => dispatch => {
   fetch(`${REACT_APP_API_BASE_URL}/dog`)
     .then(res => {
       if (!res.ok) {
-        console.log('error fetching dog')
+        console.log('error fetching dog');
         return Promise.reject(res.statusText);
       }
       return res.json();
     })
     .then(dog => {
-      console.log('dispatching fetchDogSuccess')
+      console.log('dispatching fetchDogSuccess');
       dispatch(fetchDogSuccess(dog));
     });
 };

@@ -10,9 +10,9 @@ import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
-  (
   <Provider store={store}>
     <Dashboard />
-  </Provider>
-  ), document.getElementById('root'));
+  </Provider>,
+  document.getElementById('root')
+);
 registerServiceWorker();
