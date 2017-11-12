@@ -2,10 +2,14 @@ import { REACT_APP_API_BASE_URL } from './config';
 
 export const ADOPT_PET_SUCCESS = 'ADOPT_PET_SUCCESS';
 export const adoptPetSuccess = species => ({
-  type: ADOPT_PET_SUCCESS,
-  species
+  species,
+  type: ADOPT_PET_SUCCESS
 });
 
+/**
+ * Makes a DELETE requerst to remove an animal from the shelter.
+ * @param {string} species - The animal being adopted out. Either 'cat' or 'dog'.
+ */
 export const adoptPet = species => dispatch => {
   console.log('adopt pet');
 
@@ -21,55 +25,36 @@ export const adoptPet = species => dispatch => {
       console.log('dispatching adoptPetSuccess');
       dispatch(adoptPetSuccess(species));
     })
-    .then(() => {
-      if (species === 'cat') {
-        dispatch(fetchCat());
-      }
-      if (species === 'dog') {
-        dispatch(fetchDog());
-      }
-    });
+    .then(() => 
+      dispatch(fetchPet(species))
+  );
 };
 
-export const FETCH_CAT_SUCCESS = 'FETCH_CAT_SUCCESS';
-export const fetchCatSuccess = cat => ({
-  type: FETCH_CAT_SUCCESS,
-  cat
+
+export const FETCH_PET_SUCCESS = 'FETCH_PET_SUCCESS';
+export const fetchPetSuccess = (pet, species) => ({
+  pet,
+  species,
+  type: FETCH_PET_SUCCESS
 });
 
-export const fetchCat = () => dispatch => {
-  console.log('cat fetch');
-  fetch(`${REACT_APP_API_BASE_URL}/cat`)
+
+/**
+ * Makes a GET requerst to show an animal in shelter.
+ * @param {string} species - The animal to look at. Either 'cat' or 'dog'.
+ */
+export const fetchPet = (species) => dispatch => {
+  console.log(`Attempting to fetch a ${species}`);
+  fetch(`${REACT_APP_API_BASE_URL}/${species}`)
     .then(res => {
       if (!res.ok) {
-        console.log('error fetching cat');
+        console.log(`error fetching the ${species}!`);
         return Promise.reject(res.statusText);
       }
       return res.json();
     })
-    .then(cat => {
-      console.log('dispatching fetCatSuccess');
-      dispatch(fetchCatSuccess(cat));
-    });
-};
-
-export const FETCH_DOG_SUCCESS = 'FETCH_DOG_SUCCESS';
-export const fetchDogSuccess = dog => ({
-  type: FETCH_DOG_SUCCESS,
-  dog
-});
-
-export const fetchDog = () => dispatch => {
-  fetch(`${REACT_APP_API_BASE_URL}/dog`)
-    .then(res => {
-      if (!res.ok) {
-        console.log('error fetching dog');
-        return Promise.reject(res.statusText);
-      }
-      return res.json();
-    })
-    .then(dog => {
-      console.log('dispatching fetchDogSuccess');
-      dispatch(fetchDogSuccess(dog));
+    .then(pet => {
+      console.log(`Got a ${species}! Dispatching fetchPetSuccess`);
+      dispatch(fetchPetSuccess(pet, species));
     });
 };

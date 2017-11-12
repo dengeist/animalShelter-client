@@ -1,8 +1,4 @@
-import {
-  ADOPT_PET_SUCCESS,
-  FETCH_CAT_SUCCESS,
-  FETCH_DOG_SUCCESS
-} from './actions';
+import { ADOPT_PET_SUCCESS, FETCH_PET_SUCCESS } from './actions';
 
 const initialState = {
   cat: null,
@@ -15,16 +11,9 @@ export default function reducers(state = initialState, action) {
       [action.species]: null
     });
   }
-
-  if (action.type === FETCH_CAT_SUCCESS) {
+  if (action.type === FETCH_PET_SUCCESS) {
     return Object.assign({}, state, {
-      cat: action.cat
-    });
-  }
-
-  if (action.type === FETCH_DOG_SUCCESS) {
-    return Object.assign({}, state, {
-      dog: action.dog
+      [action.species]: action.pet
     });
   }
 
