@@ -5,7 +5,7 @@ export default function Pet(props) {
     <section className="animal">
       <header>
         <h2 data-prop="name">{props.name}</h2>
-        <img src={props.imageURL} alt={props.description} />
+        <img src={props.imageURL} alt={props.imageDescription} />
       </header>
       <main>
         <h3>More about {props.name}</h3>
