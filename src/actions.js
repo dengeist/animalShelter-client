@@ -1,5 +1,7 @@
 import { REACT_APP_API_BASE_URL } from './config';
 
+/** --------------------------- GETTING A PET ----------------------------- **/
+
 /**
  * Makes a GET requerst to show an animal in shelter.
  * @param {string} species - The animal to look at. Either 'cat' or 'dog'.
@@ -20,12 +22,29 @@ export const fetchPet = (species) => dispatch => {
     });
 };
 
+export const FETCH_PET_REQUEST = 'FETCH_PET_REQUEST';
+export const fetchPetRequest = species => ({
+  species,
+  type: FETCH_PET_REQUEST
+});
+
+
+export const FETCH_PET_ERROR = 'FETCH_PET_ERROR';
+export const fetchPetError = error => ({
+  error,
+  species,
+  type: FETCH_PET_ERROR,
+});
+
 export const FETCH_PET_SUCCESS = 'FETCH_PET_SUCCESS';
 export const fetchPetSuccess = (pet, species) => ({
   pet,
   species,
   type: FETCH_PET_SUCCESS
 });
+
+
+/** --------------------------- DELETING A PET ----------------------------- **/
 
 /**
  * Makes a DELETE requerst to remove an animal from the shelter.
@@ -51,8 +70,20 @@ export const adoptPet = species => dispatch => {
   );
 };
 
+export const ADOPT_PET_REQUEST = 'ADOPT_PET_REQUEST';
+export const adoptPetSuccess = species => ({
+  species,
+  type: ADOPT_PET_REQUEST
+  
+});
 export const ADOPT_PET_SUCCESS = 'ADOPT_PET_SUCCESS';
 export const adoptPetSuccess = species => ({
   species,
   type: ADOPT_PET_SUCCESS
+});
+
+export const ADOPT_PET_ERROR = 'ADOPT_PET_ERROR';
+export const adoptPetSuccess = species => ({
+  species,
+  type: ADOPT_PET_ERROR
 });
