@@ -18,10 +18,12 @@ export class Dashboard extends React.Component {
       <div className="animals">
         <Pet
           {...this.props.catToAdopt}
+          loading={this.props.catLoading}
           onAdoptPet={() => this.props.dispatch(adoptPet('cat'))}
         />
         <Pet
           {...this.props.dogToAdopt}
+          loading={this.props.dogLoading}
           onAdoptPet={() => this.props.dispatch(adoptPet('dog'))}
         />
       </div>
@@ -30,8 +32,10 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  catToAdopt: state.cat,
-  dogToAdopt: state.dog
+  catToAdopt: state.cat.data,
+  dogToAdopt: state.dog.data,
+  catLoading: state.cat.loading,
+  dogLoading: state.dog.loading
 });
 
 export default connect(mapStateToProps)(Dashboard);
