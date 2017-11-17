@@ -63,5 +63,11 @@ export default function reducers(state = initialState, action) {
     });
   }
 
+  if (action.type === FETCH_PET_SUCCESS) {
+    return Object.assign({}, state, {
+      [action.species]: { data: action.pet }
+    });
+  }
+
   return state;
 }

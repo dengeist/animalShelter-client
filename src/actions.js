@@ -8,6 +8,8 @@ import { REACT_APP_API_BASE_URL } from './config';
  */
 export const fetchPet = (species) => dispatch => {
   console.log(`Attempting to fetch a ${species}`);
+  dispatch(fetchPetRequest());
+
   fetch(`${REACT_APP_API_BASE_URL}/${species}`)
     .then(res => {
       if (!res.ok) {
@@ -19,7 +21,8 @@ export const fetchPet = (species) => dispatch => {
     .then(pet => {
       console.log(`Got a ${species}! Dispatching fetchPetSuccess`);
       dispatch(fetchPetSuccess(pet, species));
-    });
+    })
+    .catch(error => fetchPetError(error, species));
 };
 
 export const FETCH_PET_REQUEST = 'FETCH_PET_REQUEST';
@@ -30,7 +33,7 @@ export const fetchPetRequest = species => ({
 
 
 export const FETCH_PET_ERROR = 'FETCH_PET_ERROR';
-export const fetchPetError = error => ({
+export const fetchPetError = (error, species) => ({
   error,
   species,
   type: FETCH_PET_ERROR,
@@ -52,7 +55,8 @@ export const fetchPetSuccess = (pet, species) => ({
  */
 export const adoptPet = species => dispatch => {
   console.log('adopt pet');
-
+  dispatch(ADOPT_PET_REQUEST());
+  
   fetch(`${REACT_APP_API_BASE_URL}/${species}`, { method: 'DELETE' })
     .then(res => {
       if (!res.ok) {
@@ -67,11 +71,12 @@ export const adoptPet = species => dispatch => {
     })
     .then(() => 
       dispatch(fetchPet(species))
-  );
+  )
+  .catch(error => adoptPetError(error, species));
 };
 
 export const ADOPT_PET_REQUEST = 'ADOPT_PET_REQUEST';
-export const adoptPetSuccess = species => ({
+export const adoptPetRequest = species => ({
   species,
   type: ADOPT_PET_REQUEST
   
@@ -83,7 +88,7 @@ export const adoptPetSuccess = species => ({
 });
 
 export const ADOPT_PET_ERROR = 'ADOPT_PET_ERROR';
-export const adoptPetSuccess = species => ({
+export const adoptPetError = species => ({
   species,
   type: ADOPT_PET_ERROR
 });
