@@ -1,12 +1,21 @@
 import React from 'react';
 
 export default function Pet(props) {
-  return (
-    <section className="animal">
+  let petHeader = (
       <header>
-        <h2 data-prop="name">{props.name}</h2>
-        <img src={props.imageURL} alt={props.imageDescription} />
+        <h2>Loading...</h2>
       </header>
+  );
+  let petMain = null;
+
+  if (!props.loading) {
+    petHeader = (
+    <header>
+      <h2 data-prop="name">{props.name}</h2>
+      <img src={props.imageURL} alt={props.imageDescription} />
+    </header>
+    );
+    petMain = (
       <main>
         <h3>More about {props.name}</h3>
         <dl>
@@ -23,6 +32,13 @@ export default function Pet(props) {
           Adopt
         </button>
       </main>
-    </section>
-  );
-}
+    );
+  }
+
+
+  return (
+  <section className="animal">
+  {petHeader}
+  {petMain}
+  </section>)
+  }

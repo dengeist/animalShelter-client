@@ -8,7 +8,7 @@ import { REACT_APP_API_BASE_URL } from './config';
  */
 export const fetchPet = (species) => dispatch => {
   console.log(`Attempting to fetch a ${species}`);
-  dispatch(fetchPetRequest());
+  dispatch(fetchPetRequest(species));
 
   fetch(`${REACT_APP_API_BASE_URL}/${species}`)
     .then(res => {
@@ -55,7 +55,7 @@ export const fetchPetSuccess = (pet, species) => ({
  */
 export const adoptPet = species => dispatch => {
   console.log('adopt pet');
-  dispatch(ADOPT_PET_REQUEST());
+  dispatch(adoptPetRequest(species));
   
   fetch(`${REACT_APP_API_BASE_URL}/${species}`, { method: 'DELETE' })
     .then(res => {
