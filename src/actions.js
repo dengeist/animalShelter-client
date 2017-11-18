@@ -18,9 +18,9 @@ export const fetchPet = species => dispatch => {
       }
       return res.json();
     })
-    .then(pet => {
+    .then(data => {
       console.log(`Got a ${species}! Dispatching fetchPetSuccess`);
-      dispatch(fetchPetSuccess(pet, species));
+      dispatch(fetchPetSuccess(data, species));
     })
     .catch(error => fetchPetError(error, species));
 };
@@ -39,8 +39,8 @@ export const fetchPetError = (error, species) => ({
 });
 
 export const FETCH_PET_SUCCESS = 'FETCH_PET_SUCCESS';
-export const fetchPetSuccess = (pet, species) => ({
-  pet,
+export const fetchPetSuccess = (data, species) => ({
+  data,
   species,
   type: FETCH_PET_SUCCESS
 });

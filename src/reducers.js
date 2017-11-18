@@ -41,7 +41,10 @@ export default (state = initialState, action) => {
 
   if (action.type === ADOPT_PET_SUCCESS) {
     return Object.assign({}, state, {
-      [action.species]: { data: null }
+      [action.species]: {
+        data: null,
+        loading: false
+      }
     });
   }
 
@@ -65,7 +68,10 @@ export default (state = initialState, action) => {
 
   if (action.type === FETCH_PET_SUCCESS) {
     return Object.assign({}, state, {
-      [action.species]: { data: action.pet }
+      [action.species]: { 
+        data: action.data,
+        loading: false
+      }
     });
   }
 
