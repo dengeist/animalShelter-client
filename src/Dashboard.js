@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { adoptPet, fetchPet } from './actions';
+import { fetchCat, adoptCat, fetchDog, adoptDog } from './actions/';
 
 import Pet from './components/Pet';
 
 export class Dashboard extends React.Component {
   componentDidMount() {
     Promise.all([
-      this.props.dispatch(fetchPet('cat')),
-      this.props.dispatch(fetchPet('dog'))
+      this.props.dispatch(fetchCat()),
+      this.props.dispatch(fetchDog())
     ]);
   }
 
@@ -18,11 +18,11 @@ export class Dashboard extends React.Component {
       <div className="animals">
         <Pet
           {...this.props.catToAdopt}
-          onAdoptPet={() => this.props.dispatch(adoptPet('cat'))}
+          onAdoptPet={() => this.props.dispatch(adoptCat())}
         />
         <Pet
           {...this.props.dogToAdopt}
-          onAdoptPet={() => this.props.dispatch(adoptPet('dog'))}
+          onAdoptPet={() => this.props.dispatch(adoptDog())}
         />
       </div>
     );
