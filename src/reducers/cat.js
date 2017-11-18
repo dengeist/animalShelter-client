@@ -5,7 +5,7 @@ import {
   FETCH_CAT_REQUEST,
   FETCH_CAT_ERROR,
   FETCH_CAT_SUCCESS
-} from '../actions';
+} from '../actions/';
 
 const initialState = {
   data: null,
