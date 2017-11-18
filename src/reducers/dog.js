@@ -7,13 +7,7 @@ import {
   FETCH_DOG_SUCCESS
 } from '../actions/';
 
-const initialState = {
-  data: null,
-  error: null,
-  loading: false
-};
-
-export default (state = initialState, action) => {
+export default (state = {}, action) => {
   if (action.type === ADOPT_DOG_REQUEST) {
     return Object.assign({}, state, {
       error: null,
@@ -50,7 +44,6 @@ export default (state = initialState, action) => {
   }
 
   if (action.type === FETCH_DOG_SUCCESS) {
-    console.log(action)
     return Object.assign({}, state, {
       data: action.data,
       loading: false

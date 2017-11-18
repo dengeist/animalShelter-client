@@ -7,13 +7,8 @@ import {
   FETCH_CAT_SUCCESS
 } from '../actions/';
 
-const initialState = {
-  data: null,
-  error: null,
-  loading: false
-};
 
-export default (state = initialState, action) => {
+export default (state={}, action) => {
   if (action.type === ADOPT_CAT_REQUEST) {
     return Object.assign({}, state, {
       error: null,
