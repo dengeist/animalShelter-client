@@ -3,19 +3,19 @@ import { REACT_APP_API_BASE_URL } from '../config';
 /** --------------------------- GETTING A CAT ----------------------------- **/
 
 export const fetchCat = () => dispatch => {
-  console.log(`Attempting to fetch a cat`);
+  console.log('Attempting to fetch a cat');
   dispatch(fetchCatRequest());
 
   fetch(`${REACT_APP_API_BASE_URL}/cat`)
     .then(res => {
       if (!res.ok) {
-        console.log(`error fetching the cat!`);
+        console.log('error fetching the cat!');
         return Promise.reject(res.statusText);
       }
       return res.json();
     })
     .then(cat => {
-      console.log(`Got a cat! Dispatching fetchCatSuccess`);
+      console.log('Got a cat! Dispatching fetchCatSuccess');
       dispatch(fetchCatSuccess(cat));
     })
     .catch(error => fetchCatError(error));
@@ -60,8 +60,8 @@ export const adoptCat = () => dispatch => {
     })
     .then(() => 
       dispatch(fetchCat())
-  )
-  .catch(error => adoptCatError(error, ));
+    )
+    .catch(error => adoptCatError(error, ));
 };
 
 export const ADOPT_CAT_REQUEST = 'ADOPT_CAT_REQUEST';
@@ -69,12 +69,13 @@ export const adoptCatRequest = () => ({
   type: ADOPT_CAT_REQUEST
   
 });
-export const ADOPT_CAT_SUCCESS = 'ADOPT_CAT_SUCCESS';
-export const adoptCatSuccess = () => ({
-  type: ADOPT_CAT_SUCCESS
-});
 
 export const ADOPT_CAT_ERROR = 'ADOPT_CAT_ERROR';
 export const adoptCatError = () => ({
   type: ADOPT_CAT_ERROR
+});
+
+export const ADOPT_CAT_SUCCESS = 'ADOPT_CAT_SUCCESS';
+export const adoptCatSuccess = () => ({
+  type: ADOPT_CAT_SUCCESS
 });

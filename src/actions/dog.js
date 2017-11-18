@@ -3,19 +3,19 @@ import { REACT_APP_API_BASE_URL } from '../config';
 /** --------------------------- GETTING A DOG ----------------------------- **/
 
 export const fetchDog = () => dispatch => {
-  console.log(`Attempting to fetch a dog`);
+  console.log('Attempting to fetch a dog');
   dispatch(fetchDogRequest());
 
   fetch(`${REACT_APP_API_BASE_URL}/dog`)
     .then(res => {
       if (!res.ok) {
-        console.log(`error fetching the dog!`);
+        console.log('error fetching the dog!');
         return Promise.reject(res.statusText);
       }
       return res.json();
     })
     .then(dog => {
-      console.log(`Got a dog! Dispatching fetchDogSuccess`);
+      console.log('Got a dog! Dispatching fetchDogSuccess');
       dispatch(fetchDogSuccess(dog));
     })
     .then(error => fetchDogError(error));
@@ -60,8 +60,8 @@ export const adoptDog = () => dispatch => {
     })
     .then(() => 
       dispatch(fetchDog())
-  )
-  .then(error => adoptDogError(error, ));
+    )
+    .then(error => adoptDogError(error, ));
 };
 
 export const ADOPT_DOG_REQUEST = 'ADOPT_DOG_REQUEST';
@@ -69,12 +69,13 @@ export const adoptDogRequest = () => ({
   type: ADOPT_DOG_REQUEST
   
 });
-export const ADOPT_DOG_SUCCESS = 'ADOPT_DOG_SUCCESS';
-export const adoptDogSuccess = () => ({
-  type: ADOPT_DOG_SUCCESS
-});
 
 export const ADOPT_DOG_ERROR = 'ADOPT_DOG_ERROR';
 export const adoptDogError = () => ({
   type: ADOPT_DOG_ERROR
+});
+
+export const ADOPT_DOG_SUCCESS = 'ADOPT_DOG_SUCCESS';
+export const adoptDogSuccess = () => ({
+  type: ADOPT_DOG_SUCCESS
 });
