@@ -30,7 +30,8 @@ export default (state = initialState, action) => {
 
   if (action.type === ADOPT_CAT_SUCCESS) {
     return Object.assign({}, state, {
-      data: null
+      data: null,
+      loading: false
     });
   }
 
@@ -50,7 +51,8 @@ export default (state = initialState, action) => {
 
   if (action.type === FETCH_CAT_SUCCESS) {
     return Object.assign({}, state, {
-      data: action.data
+      data: action.data,
+      loading: false
     });
   }
 
