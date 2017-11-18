@@ -34,8 +34,8 @@ export const fetchCatError = error => ({
 });
 
 export const FETCH_CAT_SUCCESS = 'FETCH_CAT_SUCCESS';
-export const fetchCatSuccess = cat  => ({
-  cat,
+export const fetchCatSuccess = data  => ({
+  data,
   type: FETCH_CAT_SUCCESS
 });
 

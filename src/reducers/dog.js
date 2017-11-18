@@ -13,7 +13,7 @@ const initialState = {
   loading: false
 };
 
-export default function reducers(state = initialState, action) {
+export default (state = initialState, action) => {
   if (action.type === ADOPT_DOG_REQUEST) {
     return Object.assign({}, state, {
       error: null,
@@ -50,9 +50,9 @@ export default function reducers(state = initialState, action) {
 
   if (action.type === FETCH_DOG_SUCCESS) {
     return Object.assign({}, state, {
-      data: action.dog
+      data: action.data
     });
   }
 
   return state;
-}
+};
