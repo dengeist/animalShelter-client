@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Pet(props) {
-  // If the animal is still loading, 
+  // If the animal is still loading,
   // We'll indicate that in the header
   let petHeader = (
     <header>

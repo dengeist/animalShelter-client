@@ -20,7 +20,7 @@ const initialState = {
   }
 };
 
-export default function reducers(state = initialState, action) {
+export default (state = initialState, action) => {
   if (action.type === ADOPT_PET_REQUEST) {
     return Object.assign({}, state, {
       [action.species]: {
@@ -70,4 +70,4 @@ export default function reducers(state = initialState, action) {
   }
 
   return state;
-}
+};

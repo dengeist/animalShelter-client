@@ -6,7 +6,7 @@ import { REACT_APP_API_BASE_URL } from './config';
  * Makes a GET requerst to show an animal in shelter.
  * @param {string} species - The animal to look at. Either 'cat' or 'dog'.
  */
-export const fetchPet = (species) => dispatch => {
+export const fetchPet = species => dispatch => {
   console.log(`Attempting to fetch a ${species}`);
   dispatch(fetchPetRequest(species));
 
@@ -31,12 +31,11 @@ export const fetchPetRequest = species => ({
   type: FETCH_PET_REQUEST
 });
 
-
 export const FETCH_PET_ERROR = 'FETCH_PET_ERROR';
 export const fetchPetError = (error, species) => ({
   error,
   species,
-  type: FETCH_PET_ERROR,
+  type: FETCH_PET_ERROR
 });
 
 export const FETCH_PET_SUCCESS = 'FETCH_PET_SUCCESS';
@@ -45,7 +44,6 @@ export const fetchPetSuccess = (pet, species) => ({
   species,
   type: FETCH_PET_SUCCESS
 });
-
 
 /** --------------------------- DELETING A PET ----------------------------- **/
 
@@ -56,7 +54,7 @@ export const fetchPetSuccess = (pet, species) => ({
 export const adoptPet = species => dispatch => {
   console.log('adopt pet');
   dispatch(adoptPetRequest(species));
-  
+
   fetch(`${REACT_APP_API_BASE_URL}/${species}`, { method: 'DELETE' })
     .then(res => {
       if (!res.ok) {
@@ -69,17 +67,14 @@ export const adoptPet = species => dispatch => {
       console.log('dispatching adoptPetSuccess');
       dispatch(adoptPetSuccess(species));
     })
-    .then(() => 
-      dispatch(fetchPet(species))
-  )
-  .catch(error => adoptPetError(error, species));
+    .then(() => dispatch(fetchPet(species)))
+    .catch(error => adoptPetError(error, species));
 };
 
 export const ADOPT_PET_REQUEST = 'ADOPT_PET_REQUEST';
 export const adoptPetRequest = species => ({
   species,
   type: ADOPT_PET_REQUEST
-  
 });
 export const ADOPT_PET_SUCCESS = 'ADOPT_PET_SUCCESS';
 export const adoptPetSuccess = species => ({
