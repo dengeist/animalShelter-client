@@ -1,6 +1,19 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-import reducers from './reducers';
+import reducer from './reducers/';
 
-export default createStore(reducers, applyMiddleware(thunk));
+const initialState = {
+  cat: {
+    data: null,
+    error: null,
+    loading: false
+  },
+  dog: {
+    data: null,
+    error: null,
+    loading: false
+  }
+};
+
+export default createStore(reducer, initialState, applyMiddleware(thunk));
