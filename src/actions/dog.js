@@ -1,6 +1,6 @@
 import { REACT_APP_API_BASE_URL } from '../config';
 
-/** --------------------------- GETTING A DOG ----------------------------- **/
+/// --------------------------- GETTING A DOG ----------------------------- ///
 
 export const fetchDog = () => dispatch => {
   console.log('Attempting to fetch a dog');

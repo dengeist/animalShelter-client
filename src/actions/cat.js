@@ -1,6 +1,6 @@
 import { REACT_APP_API_BASE_URL } from '../config';
 
-/** --------------------------- GETTING A CAT ----------------------------- **/
+/// --------------------------- GETTING A CAT ----------------------------- ///
 
 export const fetchCat = () => dispatch => {
   console.log('Attempting to fetch a cat');
@@ -40,7 +40,7 @@ export const fetchCatSuccess = data  => ({
 });
 
 
-/** --------------------------- DELETING A CAT ----------------------------- **/
+/// --------------------------- DELETING A CAT ----------------------------- ///
 
 export const adoptCat = () => dispatch => {
   console.log('adopt cat');
