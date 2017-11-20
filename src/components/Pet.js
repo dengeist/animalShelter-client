@@ -18,20 +18,20 @@ export default function Pet(props) {
   return (
     <section className="animal">
       <header>
-        <h2 data-prop="name">{props.name}</h2>
+        <h2 className="animal-name">{props.name}</h2>
         <img src={props.imageURL} alt={props.imageDescription} />
       </header>
       <main>
         <h3>More about {props.name}</h3>
-        <dl>
-          <dt>Sex</dt>
-          <dd>{props.gender}</dd>
-          <dt>Age</dt>
-          <dd>{props.age} years</dd>
-          <dt>Breed</dt>
-          <dd>{props.breed}</dd>
-          <dt>Story</dt>
-          <dd>{props.story}</dd>
+        <dl className="animal-attributes">
+          <dt className="term-sex">Sex</dt>
+          <dd className="def-sex">{props.gender}</dd>
+          <dt className="term-age">Age</dt>
+          <dd className="def-age">{props.age} years</dd>
+          <dt className="term-breed">Breed</dt>
+          <dd className="def-breed">{props.breed}</dd>
+          <dt className="term-story">Story</dt>
+          <dd className="def-story">{props.story}</dd>
         </dl>
         <button type="button" onClick={() => props.onAdoptPet()}>
           Adopt
