@@ -2,27 +2,25 @@ import React from 'react';
 
 export default function Pet(props) {
   // If the animal is still loading,
-  // We'll indicate that in the header
-  let petHeader = (
-    <header>
-      <h2>Loading...</h2>
-    </header>
-  );
-  // ... and leave the main empty
-  let petMain = null;
+  // we'll return early.
+  if (props.loading) {
+    return (
+      <section>
+        <h2>Loading...</h2>
+      </section>
+    );
+  }
 
   // If the animal is done loading,
-  if (!props.loading) {
-    // We'll put the animal's name and photo in the header,
-    petHeader = (
+  // we can build a proper section 
+  // with a header and a main.
+
+  return (
+    <section className="animal">
       <header>
         <h2 data-prop="name">{props.name}</h2>
         <img src={props.imageURL} alt={props.imageDescription} />
       </header>
-    );
-
-    // and build the main information about the animal.
-    petMain = (
       <main>
         <h3>More about {props.name}</h3>
         <dl>
@@ -39,13 +37,6 @@ export default function Pet(props) {
           Adopt
         </button>
       </main>
-    );
-  }
-
-  return (
-    <section className="animal">
-      {petHeader}
-      {petMain}
     </section>
   );
 }
