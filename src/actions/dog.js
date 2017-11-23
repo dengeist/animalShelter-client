@@ -61,7 +61,7 @@ export const adoptDog = () => dispatch => {
     .then(() => 
       dispatch(fetchDog())
     )
-    .then(error => adoptDogError(error, ));
+    .then(error => adoptDogError(error));
 };
 
 export const ADOPT_DOG_REQUEST = 'ADOPT_DOG_REQUEST';

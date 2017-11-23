@@ -61,7 +61,7 @@ export const adoptCat = () => dispatch => {
     .then(() => 
       dispatch(fetchCat())
     )
-    .catch(error => adoptCatError(error, ));
+    .catch(error => adoptCatError(error));
 };
 
 export const ADOPT_CAT_REQUEST = 'ADOPT_CAT_REQUEST';
