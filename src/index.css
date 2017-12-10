@@ -1,11 +1,15 @@
 body {
   margin: 0;
   padding: 0;
-  font: 100%/1.5 sans-serif;
+  font: 110%/1.5 arial;
+  letter-spacing: -1px;
 }
 
-body * {
-  box-sizing: border-box;
+h2 {
+  letter-spacing: -2px;
+}
+h3 {
+  letter-spacing: -1px
 }
 
 img {
@@ -34,32 +38,14 @@ button {
   font-size: inherit;
 }
 
-.animals {
-  width: 90%;
-  padding: 2%;
-  margin: 0 auto;
-}
-
-.animals:after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-.animal {
-  width: 100%;
-}
-
-@media screen and (min-width: 48rem) {
+@media only screen and (min-width: 640px) {
   body {
     font-size: 120%;
   }
-  .animal {
-    float: left;
-    width: 48%;
-  }
+}
 
-  .animal:last-of-type {
-    float: right;
+@media only screen and (min-width: 720px) {
+  body {
+    font-size: 125%;
   }
 }

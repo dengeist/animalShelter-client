@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 
 import store from './store';
 
-import Dashboard from './Dashboard';
 import './index.css';
+import Dashboard from './Dashboard';
 
 import registerServiceWorker from './registerServiceWorker';
 

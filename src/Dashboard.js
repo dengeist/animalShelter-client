@@ -16,22 +16,28 @@ export class Dashboard extends React.Component {
   render() {
     return (
       <div className="animals">
-        <Pet
-          {...this.props.catToAdopt}
-          onAdoptPet={() => this.props.dispatch(adoptCat())}
-        />
-        <Pet
-          {...this.props.dogToAdopt}
-          onAdoptPet={() => this.props.dispatch(adoptDog())}
-        />
+        <div className="row">
+          <div className="col-6">
+            <Pet
+              {...this.props.catToAdopt}
+              onAdoptPet={() => this.props.dispatch(adoptCat())}
+            />
+          </div>
+          <div className="col-6">
+            <Pet
+              {...this.props.dogToAdopt}
+              onAdoptPet={() => this.props.dispatch(adoptDog())}
+            />
+          </div>
+        </div>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  catToAdopt: Object.assign({}, state.cat.data, {loading: state.cat.loading}),
-  dogToAdopt: Object.assign({}, state.dog.data, {loading: state.dog.loading})
+  catToAdopt: Object.assign({}, state.cat.data, { loading: state.cat.loading }),
+  dogToAdopt: Object.assign({}, state.dog.data, { loading: state.dog.loading })
 });
 
 export default connect(mapStateToProps)(Dashboard);
