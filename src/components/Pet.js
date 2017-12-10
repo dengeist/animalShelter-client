@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Pet(props) {
   // If the animal is still loading,
@@ -12,9 +13,8 @@ export default function Pet(props) {
   }
 
   // If the animal is done loading,
-  // we can build a proper section 
+  // we can build a proper section
   // with a header and a main.
-
   return (
     <section className="animal">
       <header>
@@ -40,3 +40,13 @@ export default function Pet(props) {
     </section>
   );
 }
+
+Pet.propTypes = {
+  name: PropTypes.string,
+  imageURL: PropTypes.string,
+  imageDescription: PropTypes.string,
+  gender: PropTypes.string,
+  age: PropTypes.number,
+  breed: PropTypes.string,
+  story: PropTypes.string
+};
