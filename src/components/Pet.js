@@ -25,7 +25,7 @@ export default function Pet(props) {
         <h3>More about {props.name}</h3>
         <dl className="animal-attributes">
           <dt className="term-sex">Sex</dt>
-          <dd className="def-sex">{props.gender}</dd>
+          <dd className="def-sex">{props.sex}</dd>
           <dt className="term-age">Age</dt>
           <dd className="def-age">{props.age} years</dd>
           <dt className="term-breed">Breed</dt>
@@ -45,7 +45,7 @@ Pet.propTypes = {
   name: PropTypes.string,
   imageURL: PropTypes.string,
   imageDescription: PropTypes.string,
-  gender: PropTypes.string,
+  sex: PropTypes.string,
   age: PropTypes.number,
   breed: PropTypes.string,
   story: PropTypes.string
