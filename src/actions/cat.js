@@ -26,26 +26,24 @@ export const fetchCatRequest = () => ({
   type: FETCH_CAT_REQUEST
 });
 
-
 export const FETCH_CAT_ERROR = 'FETCH_CAT_ERROR';
 export const fetchCatError = error => ({
   error,
-  type: FETCH_CAT_ERROR,
+  type: FETCH_CAT_ERROR
 });
 
 export const FETCH_CAT_SUCCESS = 'FETCH_CAT_SUCCESS';
-export const fetchCatSuccess = data  => ({
+export const fetchCatSuccess = data => ({
   data,
   type: FETCH_CAT_SUCCESS
 });
-
 
 /// --------------------------- DELETING A CAT ----------------------------- ///
 
 export const adoptCat = () => dispatch => {
   console.log('adopt cat');
   dispatch(adoptCatRequest());
-  
+
   fetch(`${REACT_APP_API_BASE_URL}/cat`, { method: 'DELETE' })
     .then(res => {
       if (!res.ok) {
@@ -58,16 +56,13 @@ export const adoptCat = () => dispatch => {
       console.log('dispatching adoptCatSuccess');
       dispatch(adoptCatSuccess());
     })
-    .then(() => 
-      dispatch(fetchCat())
-    )
+    .then(() => dispatch(fetchCat()))
     .catch(error => adoptCatError(error));
 };
 
 export const ADOPT_CAT_REQUEST = 'ADOPT_CAT_REQUEST';
 export const adoptCatRequest = () => ({
   type: ADOPT_CAT_REQUEST
-  
 });
 
 export const ADOPT_CAT_ERROR = 'ADOPT_CAT_ERROR';

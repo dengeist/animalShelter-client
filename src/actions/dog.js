@@ -26,26 +26,24 @@ export const fetchDogRequest = () => ({
   type: FETCH_DOG_REQUEST
 });
 
-
 export const FETCH_DOG_ERROR = 'FETCH_DOG_ERROR';
 export const fetchDogError = error => ({
   error,
-  type: FETCH_DOG_ERROR,
+  type: FETCH_DOG_ERROR
 });
 
 export const FETCH_DOG_SUCCESS = 'FETCH_DOG_SUCCESS';
-export const fetchDogSuccess = data  => ({
+export const fetchDogSuccess = data => ({
   data,
   type: FETCH_DOG_SUCCESS
 });
-
 
 /** --------------------------- DELETING A DOG ----------------------------- **/
 
 export const adoptDog = () => dispatch => {
   console.log('adopt dog');
   dispatch(adoptDogRequest());
-  
+
   fetch(`${REACT_APP_API_BASE_URL}/dog`, { method: 'DELETE' })
     .then(res => {
       if (!res.ok) {
@@ -58,16 +56,13 @@ export const adoptDog = () => dispatch => {
       console.log('dispatching adoptDogSuccess');
       dispatch(adoptDogSuccess());
     })
-    .then(() => 
-      dispatch(fetchDog())
-    )
+    .then(() => dispatch(fetchDog()))
     .then(error => adoptDogError(error));
 };
 
 export const ADOPT_DOG_REQUEST = 'ADOPT_DOG_REQUEST';
 export const adoptDogRequest = () => ({
   type: ADOPT_DOG_REQUEST
-  
 });
 
 export const ADOPT_DOG_ERROR = 'ADOPT_DOG_ERROR';
