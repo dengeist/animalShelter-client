@@ -6,8 +6,16 @@ export default function Pet(props) {
   // we'll return early.
   if (props.loading) {
     return (
-      <section>
+      <section className="aninmal">
         <h2>Loading...</h2>
+      </section>
+    );
+  }
+
+  if (!props.loading && !props.name) {
+    return (
+      <section className="aninmal">
+        <h2>All gone! :)</h2>
       </section>
     );
   }
