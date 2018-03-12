@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function Pet(props) {
-  // If the animal is still loading,
+  // If the pet is still loading,
   // we'll return early.
   if (props.loading) {
     return (
-      <section className="aninmal">
+      <section className="pet">
         <h2>Loading...</h2>
       </section>
     );
@@ -14,24 +14,24 @@ export default function Pet(props) {
 
   if (!props.loading && !props.name) {
     return (
-      <section className="aninmal">
+      <section className="pet">
         <h2>All gone! :)</h2>
       </section>
     );
   }
 
-  // If the animal is done loading,
+  // If the pet is done loading,
   // we can build a proper section
   // with a header and a main.
   return (
-    <section className="animal">
+    <section className="pet">
       <header>
-        <h2 className="animal-name">{props.name}</h2>
+        <h2 className="pet-name">{props.name}</h2>
         <img src={props.imageURL} alt={props.imageDescription} />
       </header>
       <main>
         <h3>More about {props.name}</h3>
-        <dl className="animal-attributes">
+        <dl className="pet-attributes">
           <dt className="term-sex">Sex</dt>
           <dd className="def-sex">{props.sex}</dd>
           <dt className="term-age">Age</dt>

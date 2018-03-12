@@ -15,7 +15,7 @@ export class Dashboard extends React.Component {
 
   render() {
     return (
-      <div className="animals">
+      <div className="pets">
         <div className="row">
           <div className="col-6">
             <Pet
